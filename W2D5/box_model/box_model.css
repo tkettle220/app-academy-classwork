@@ -1,0 +1,41 @@
+div {
+  min-width: 200px;
+  height: 5px;
+  padding: 50px;
+  border: 5px solid black;
+}
+
+#nice-cat {
+  width: 100%;
+}
+
+#first-div {
+  background-color: #39cccc;
+}
+
+#second-div {
+  box-sizing: border-box;
+  background-color: #ff4136;
+}
+
+#third-div {
+  background-color: blue;
+  min-height: 10px;
+}
+
+.image-1-container {
+  width: 200px;
+  height: 600px;
+  background-color: green;
+}
+
+.image-2-container {
+  display: inline-block;
+  min-width: 200px;
+  height: 600px;
+  background-color: green;
+}
+
+p {
+  background-color: #7fdbff;
+}

@@ -1,0 +1,44 @@
+.col-1-5 h3 {
+  font-size: 16px;
+}
+
+.col h3:hover {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.col h2 {
+  color: $gray;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.col h4 {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.col ul {
+  list-style: disc;
+  padding-top: 10px;
+}
+
+.col-1-5 ul li {
+  padding-top: 10px;
+}
+
+.col-1-2 li {
+  font-weight: bold;
+}
+
+.col a {
+  color: $light-blue;
+}
+
+.col a:hover {
+  text-decoration: underline;
+}
+
+.col p {
+  padding-top: 10px;
+}
