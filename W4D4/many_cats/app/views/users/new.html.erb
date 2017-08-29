@@ -1,0 +1,12 @@
+<%= render "shared/errors" %>
+
+<form action=" <%= users_url %> " method="post">
+  <%= render "shared/authenticity_token" %>
+  <label for="user_name">Username: </label>
+  <input id="user_name" type="text" name="user[user_name]">
+
+  <label for="password">Password: </label>
+  <input id="password" type="password" name="user[password]" value="">
+
+  <input type="submit">
+</form>

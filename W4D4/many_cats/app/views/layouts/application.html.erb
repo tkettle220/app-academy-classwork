@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+    <% if current_user %>
+    <%= button_to("Log Out", session_url, method: :delete) %>
+      <h1><%=current_user.user_name%></h1>
+      <h2>Logged In Sessions:</h2>
+      <ul>
+        <% current_user.logged_in_sessions.each do |session|  %>
+          <li>IP Address: <%= session.ip_address  %> </li>
+          <li>User Agent: <%= session.user_agent %> </li>
+          <br>
+        <% end %>
+      </ul>
+
+    <% else %>
+      <%= button_to("Log In", new_session_url, method: :get) %>
+      <%= button_to("Sign Up", new_user_url, method: :get) %>
+
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+<%#= "IP Address: " + request.remote_ip %>
+<%#= "Your env: #{request.env['HTTP_USER_AGENT']}"%>
