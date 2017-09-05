@@ -1,0 +1,47 @@
+<h1><%= @post.title %></h1>
+
+<% unless @post.url.empty? %>
+  url: <%= @post.url %>
+<% end %>
+
+
+<% if @post.content %>
+  <p>content: <%= @post.content %></p>
+<% end %>
+dis many ppl lik dis: <%= @post.num_votes %>
+<%= button_to "i lik dis", "/posts/#{@post.id}/upvote"%>
+<%= button_to "screw dis", "/posts/#{@post.id}/downvote"%>
+<%= button_to "i feel neutral bout dis", "/posts/#{@post.id}/resetvote"%>
+
+<label>Comments:
+  <ul>
+    <% @post.comments.includes(:author).each do |comment| %>
+      <% if comment.parent_comment_id.nil? %>
+        <li> <%= render "/shared/comment.html.erb", comment: comment, post: @post %> </li>
+      <% end %>
+    <% end %>
+  </ul>
+</label>
+
+
+<form class="" action="<%=comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+  <label>Comment:
+    <textarea name="comment[content]"></textarea>
+  </label>
+  <input type="submit" name="" value="post dis comment!">
+</form>
+
+
+
+<h2>Subs:</h2>
+<ul>
+  <% @post.subs.each do |sub| %>
+  <li><%= link_to "#{sub.title}", sub_url(sub) %></li>
+  <% end %>
+</ul>
+
+
+<br>
+<%= link_to "edit dis post", edit_post_url(@post)%>

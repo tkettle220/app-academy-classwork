@@ -1,0 +1,15 @@
+<h1>Welcum to teh "<%= @sub.title %>" sub page</h1>
+<h2>description: <%= @sub.description %></h2>
+
+<label>Posts:
+  <ul>
+    <% @sub.posts.each do |post| %>
+    <li>
+      <%= link_to "#{post.title}", post_url(post) %> dis many ppl lik dis: <%= post.num_votes %>
+    </li>
+    <% end %>
+  </ul>
+</label>
+
+
+<%= link_to "bak 2 subz pls", subs_url %>

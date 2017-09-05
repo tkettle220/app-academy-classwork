@@ -1,0 +1,32 @@
+<h1><%= @comment.content %></h1>
+<h3>by: <%= @comment.author.username %></h3>
+<%= button_to "i lik dis", "/comments/#{@comment.id}/upvote"%>
+<%= button_to "screw dis", "/comments/#{@comment.id}/downvote"%>
+<%= button_to "i feel neutral bout dis", "/comments/#{@comment.id}/resetvote"%>
+
+
+
+dis many ppl lik dis: <%= @comment.num_votes %>
+
+
+<ul>
+  <% @comment.child_comments.each do |child| %>
+  <%= render "shared/comment", comment: child, post: @comment.post %>
+  <% end %>
+</ul>
+
+<form class="" action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post.id %>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+  <label>Comment:
+    <textarea name="comment[content]"></textarea>
+  </label>
+  <input type="submit" name="" value="post dis comment!">
+
+</form>
+
+<%= button_to "delet dis comment", comment_url, method: :delete %>
+
+<%= link_to "bak 2 original post pls", post_url(@comment.post.id) %>

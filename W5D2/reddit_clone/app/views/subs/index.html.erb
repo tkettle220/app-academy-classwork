@@ -1,0 +1,17 @@
+<h1>her iz many subz</h1>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li>
+      <%= link_to "#{sub.title}", sub_url(sub) %> <br>
+      Description: <%= sub.description %> <br>
+      Moderator: <%= sub.moderator.username %> <br>
+      <% if current_user.subs.include?(sub) %>
+        <%= link_to "edit dis guy", edit_sub_url(sub)%>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= button_to "mak new sub", new_sub_url, method: :get %>
+<%= button_to "mak new post", new_post_url, method: :get %>

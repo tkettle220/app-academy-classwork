@@ -1,0 +1,8 @@
+<%= comment.author.username %> saiz: <%= comment.content %> <%= link_to "see conversation", post_comment_url(post.id, comment.id) %> <br> dis many ppl lik dis: <%= comment.num_votes %>
+
+    <ul>
+      <%comment.child_comments.each do |child| %>
+        <li> <%= child.author.username %> saiz: <%= child.content %>
+        </li>
+      <% end %>
+    </ul>
