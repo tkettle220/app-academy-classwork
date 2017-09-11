@@ -1,15 +1,16 @@
-// webpack.config.js
 var path = require('path');
 
 module.exports = {
-  entry: './entry.jsx',
+  context: __dirname,
+  entry: "./widgets.jsx",
   output: {
-    filename: './bundle.js',
+    path: path.resolve(__dirname),
+    filename: "bundle.js"
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/],
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
@@ -20,6 +21,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: [".js", ".jsx", "*"]
   }
 };
