@@ -94,6 +94,33 @@
    padding-top: 20px;
  }
 
+ .PokemonIndex {
+   display: flex;
+   flex-direction: row;
+   margin: 20px;
+ }
+
+ .PokemonSideBar {
+   width: 20%;
+ }
+
+ .PokemonDetail {
+   width: 80%;
+ }
+
+ .PokemonAttributes {
+
+ }
+
+ .PokemonSideBar img {
+   width: 10%;
+ }
+
+ .PokemonDetail img {
+   height: 200px;
+   width: 80%;
+ }
+
  h2 {
    font-size: 32px;
  }

@@ -8,7 +8,9 @@ export const pokemonReducer = (state = {}, action) => {
       newState = action.pokemon;
       return newState;
     case RECEIVE_POKEMON:
-      newState = action.poke;
+      const poke = action.poke.pokemon;
+      console.log(action);
+      newState = merge({}, state, { [poke.id]: poke});
       return newState;
     default:
       return state;

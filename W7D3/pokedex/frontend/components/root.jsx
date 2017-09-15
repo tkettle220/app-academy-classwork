@@ -6,7 +6,9 @@ import { HashRouter, Route } from 'react-router-dom';
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <Route path="/" component={PokemonContainer} />
+      <div>
+        <Route path="/" component={PokemonContainer} />
+      </div>
     </HashRouter>
   </Provider>
 );
